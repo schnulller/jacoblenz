@@ -1,4 +1,8 @@
 baseURL = 'http://example.org/'
-languageCode = 'en-us'
+languageCode = 'de'
+defaultContentLanguage = "de"
 title = 'My New Hugo Site'
 theme = 'tss'
+relativeURLs = true
+removePathAccents = true
+disableKinds = ['taxonomy', 'term']

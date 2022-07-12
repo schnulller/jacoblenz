@@ -1,0 +1,17 @@
+{{ $reboot := resources.Get "css/bootstrap-reboot.min.css" | fingerprint }}
+{{ $grid := resources.Get "css/bootstrap-grid.min.css" | fingerprint }}
+{{ $utilities := resources.Get "css/bootstrap-utilities.min.css" | fingerprint }}
+{{ $overwrite := resources.Get "css/overwrite.css" | minify | fingerprint }}
+{{ $site := resources.Get "css/site.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $reboot.RelPermalink }}">
+<link rel="stylesheet" href="{{ $grid.RelPermalink }}">
+<link rel="stylesheet" href="{{ $utilities.RelPermalink }}">
+<link rel="stylesheet" href="{{ $overwrite.RelPermalink }}">
+<link rel="stylesheet" href="{{ $site.RelPermalink }}">
+
+<title>
+    {{ if and (not .IsHome) (.Page.Title) }}
+        {{ .Page.Title }} — 
+    {{ end }}
+    {{ .Site.Title }}
+</title>
